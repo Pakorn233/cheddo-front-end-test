@@ -105,6 +105,10 @@ export const SubmitButton = styled(Button)`
   color: white;
   border-radius: 5px;
   margin: 10px;
+  transition-duration: .3s;
+  &.disabled {
+    background-color: #5d885f75;
+  }
 `
 export const HeaderContainer = styled.div`
   padding: 10px 0;

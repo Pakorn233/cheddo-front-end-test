@@ -53,7 +53,12 @@ export const TaskInput = (
         // onFocus={() => dispatch({ type: TaskInputAction.START_TYPE })}
       />
       <Typing>{state.isTyping && 'Typing......'}</Typing>
-      <SubmitButton onClick={()=>onSubmitHandle(state.taskName)} disabled={state.taskName ? false : true}>BUTTON</SubmitButton>
+      <SubmitButton
+        className={`${!state.taskName && 'disabled'}`}
+        onClick={()=>onSubmitHandle(state.taskName)}
+        disabled={state.taskName ? false : true}>
+          BUTTON
+      </SubmitButton>
       <CancelButton onClick={onDelete}>DELETE</CancelButton>
     </TaskInputContainer>
   )

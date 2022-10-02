@@ -27,14 +27,12 @@ function App() {
 
   return (
     <div className="App">
-        {`select: ${todoState.selectingId}`}
       <Header />
       <Container>
         <TodoList todoList={todoList} onSelect={todoAction.selectTodo} selectingId={selectingId} />
         <TaskInput onSubmit={onSubmit} onDelete={todoAction.deleteSelectedTodo} />
         <ActivityList activityList={activityList} />
       </Container>
-        {activityList && <div>{JSON.stringify(activityList)}</div>}
     </div>
   )
 }

@@ -46,7 +46,7 @@ const todoReducer = (state: ITodoReducer, action: ITodoAction) => {
         }
       )
     case 'DELETE_ITEM':
-      if(action.payload !== null) {
+      if (action.payload !== null) {
         const deleteTaskName = [...state.todoList].find(todo => todo.id === action.payload)?.title
         useAppDispatch()(addActivityList(`Deleted task '${deleteTaskName}'`))
         return (
@@ -59,6 +59,7 @@ const todoReducer = (state: ITodoReducer, action: ITodoAction) => {
       }
       else {
         useAppDispatch()(addActivityList(`Please select task before delete`))
+        return { ...state }
       }
     case 'UPDATE_ITEM':
       const prevTaskName = [...state.todoList].find(todo => todo.id === state.selectingId)?.title
