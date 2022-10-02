@@ -108,6 +108,7 @@ export const SubmitButton = styled(Button)`
   transition-duration: .3s;
   &.disabled {
     background-color: #5d885f75;
+    cursor: auto;
   }
 `
 export const HeaderContainer = styled.div`
