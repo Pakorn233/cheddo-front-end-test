@@ -30,7 +30,7 @@ function App() {
       <Header />
       <Container>
         <TodoList todoList={todoList} onSelect={todoAction.selectTodo} selectingId={selectingId} />
-        <TaskInput onSubmit={onSubmit} onDelete={todoAction.deleteSelectedTodo} />
+        <TaskInput onSubmit={onSubmit} isUpdating={todoState.selectingId ? true : false} onDelete={todoAction.deleteSelectedTodo} />
         <ActivityList activityList={activityList} />
       </Container>
     </div>

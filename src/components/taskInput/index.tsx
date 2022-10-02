@@ -18,7 +18,8 @@ interface ITaskInputAction {
 }
 interface ITaskInput {
   onSubmit: (todo: string) => void,
-  onDelete: () => void
+  onDelete: () => void,
+  isUpdating: boolean
 }
 const initialState: ITaskInputState = {
   taskName: '',
@@ -36,7 +37,7 @@ const reducer = (state: ITaskInputState, action: ITaskInputAction) => {
   return state
 }
 export const TaskInput = (
-  { onSubmit, onDelete }: ITaskInput
+  { onSubmit, onDelete, isUpdating }: ITaskInput
 ) => {
   const [state, dispatch] = useReducer(reducer, initialState)
   const onSubmitHandle = (taskName: string) => {
@@ -57,7 +58,7 @@ export const TaskInput = (
         className={`${!state.taskName && 'disabled'}`}
         onClick={()=>onSubmitHandle(state.taskName)}
         disabled={state.taskName ? false : true}>
-          BUTTON
+          {isUpdating ? 'UPDATE' : 'ADD'}
       </SubmitButton>
       <CancelButton onClick={onDelete}>DELETE</CancelButton>
     </TaskInputContainer>
